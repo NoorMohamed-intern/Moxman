@@ -78,13 +78,13 @@
             <a href="index.html"><span>MOXMAN</span></a>
           </li>
           <li>
-            <a href="#"><span>Design</span></a>
+            <a href="#one"><span>Design</span></a>
           </li>
           <li>
-            <a href="#"><span>Animation</span></a>
+            <a href="#two"><span>Animation</span></a>
           </li>
           <li>
-            <a href="#"><span>Branding</span></a>
+            <a href="#three"><span>Branding</span></a>
           </li>
         </ul>
       </div>
@@ -120,7 +120,7 @@
           <!-----------------content-box-1-------------------->
           <section class="content-box box-1">
             <div class="">
-              <div class="row wrap-box">
+              <div class="row wrap-box" id="one">
                 <!--Start Box-->
                 <div class="header">
                   <h2>DESIGN</h2>
@@ -192,7 +192,7 @@
           </section>
 
           <!-----------------content-box-2-------------------->
-          <section class="content-box box-2">
+          <section class="content-box box-2" id="two">
             <div class="zerogrid">
               <div class="row wrap-box">
                 <div class="header">
@@ -262,7 +262,7 @@
 		</section> -->
 
           <!-----------------content-box-4-------------------->
-          <section class="content-box box-4">
+          <section class="content-box box-4" id="three">
             <div class="zerogrid">
               <div class="row wrap-box">
                 <!--Start Box-->
@@ -548,6 +548,51 @@
         //   });
         //   $(window).resize();
         // });
+
+        //smooth scrolling
+        // Select all links with hashes
+        $('a[href*="#"]')
+          // Remove links that don't actually link to anything
+          .not('[href="#"]')
+          .not('[href="#0"]')
+          .click(function (event) {
+            // On-page links
+            if (
+              location.pathname.replace(/^\//, "") ==
+                this.pathname.replace(/^\//, "") &&
+              location.hostname == this.hostname
+            ) {
+              // Figure out element to scroll to
+              var target = $(this.hash);
+              target = target.length
+                ? target
+                : $("[name=" + this.hash.slice(1) + "]");
+              // Does a scroll target exist?
+              if (target.length) {
+                // Only prevent default if animation is actually gonna happen
+                event.preventDefault();
+                $("html, body").animate(
+                  {
+                    scrollTop: target.offset().top,
+                  },
+                  1000,
+                  function () {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) {
+                      // Checking if the target was focused
+                      return false;
+                    } else {
+                      $target.attr("tabindex", "-1"); // Adding tabindex for elements not focusable
+                      $target.focus(); // Set focus again
+                    }
+                  }
+                );
+              }
+            }
+          });
       </script>
 
       <script type="text/javascript" src="js/validator.min.js"></script>
