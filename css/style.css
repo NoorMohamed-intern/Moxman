@@ -636,7 +636,7 @@ header .heading-text p {
 }
 
 .content-box.box-2 .wrap-box {
-  padding: 0 10px 100px;
+  padding: 0 10px 50px;
 }
 .content-box.box-2 img {
   height: 350px;
@@ -675,6 +675,10 @@ header .heading-text p {
     margin: 15px 0 15px 15px;
   }
 }
+
+/* .content-box.box-4 {
+  background-color: rgba(255, 255, 255, 0);
+} */
 
 .content-box.box-4 .box-entry {
   color: #4d4d4d;
@@ -1435,4 +1439,10 @@ header .hero-heading .bl {
   margin: 0;
   padding: 14px 25px;
   width: auto;
+}
+
+hr.new4 {
+  border: 1px solid #4d4e4f;
+  /* padding-top: 100px; */
+  margin-bottom: 50px;
 }
